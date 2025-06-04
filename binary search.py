@@ -39,4 +39,24 @@ iteration 2: left=mid+1 left=3 right=5
              5==ele(5)
              print(mid) 4 break the loop
 '''
-
+#recursive approach of binary search
+arr1=[3,4,6,7,9,12,16,17] #the array is sorted we can apply binary search
+target=13
+left,right=0,len(arr1)-1
+def BinarySearch(arr1,left,right,target):
+    mid=(left+right)//2
+    if left>right:
+        return -1  #if element is not found
+    elif arr1[mid]==target:  #if the middle element is target
+        return mid
+    elif target>arr1[mid]:   #if target is greater than mid left search space is removed
+        return BinarySearch(arr1,mid+1,right,target)
+    else:     #if target is less than mid right search space is removed
+        return BinarySearch(arr1,left,mid-1,right)
+print(BinarySearch(arr1,left,right,target))
+#Understanding the time complexity of the binary search
+'''For example if the size of the array is 32 initially then the next search space will be 32//2 near around 16
+32 --> 16 --> 8 --> 4 --> 2 -->1 heare there are 6 steps or 6 iteration to complete a binary serach of 34 size array
+which is equivalent to log32(base2)  log(2**5)(base2)  5log(2)(base2)  5
+'''
+#the time complexity is o(log n)(base2)
