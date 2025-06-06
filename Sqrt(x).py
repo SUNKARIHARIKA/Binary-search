@@ -16,6 +16,8 @@ print(ans)
 #optimal approach
 low,high=1,n
 def Sqrt(n,low,high):
+    if n<1:
+        return n
     answer=1
     while low<=high:
         mid=(low+high)//2
