@@ -1,6 +1,8 @@
-#binary search is an efficient algorithm for finding the eleemnt in the sorted list
+#binary search is an efficient algorithm for finding the elemnt in the sorted list
 #instead  of checking every item like linear search the search space is reduced to half 
 #we can use binary search when the array is sorted or roatted sort array
+#key concept:binary search is all about eliminating the half of the search space by comparing the target element with mid value
+#if we want to search an element with linear search the time complexity is o(n) where as it is reduce to o(logn) by using the binary search
 arr=[1,2,3,4,5,6]
 # array is in sorted order we can apply binary serach to search an eleemnt in the array
 ele=5
@@ -52,7 +54,7 @@ def BinarySearch(arr1,left,right,target):
     elif target>arr1[mid]:   #if target is greater than mid left search space is removed
         return BinarySearch(arr1,mid+1,right,target)
     else:     #if target is less than mid right search space is removed
-        return BinarySearch(arr1,left,mid-1,right)
+        return BinarySearch(arr1,left,mid-1,target)
 print(BinarySearch(arr1,left,right,target))
 #Understanding the time complexity of the binary search
 '''For example if the size of the array is 32 initially then the next search space will be 32//2 near around 16
